@@ -14,23 +14,23 @@ const Event = () => {
 
   if (!event) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-950 via-purple-900 to-pink-900">
+      <div className="min-h-screen flex items-center justify-center ">
         <p className="text-2xl text-white">Event not found</p>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-700 via-white to-green">
+    <div className="min-h-screen">
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1)_0%,rgba(0,0,0,0.3)_100%)]" />
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1501426026826-31c667bdf23d')] bg-cover bg-center opacity-5" />
+        <div className="absolute inset-0 " />
+        <div className="absolute inset-0 " />
       </div>
 
       <div className="relative max-w-6xl mx-auto px-4 py-4">
         <button
           onClick={() => router.push("/")}
-          className="flex items-center gap-2 text-gray-200 mb-8 hover:text-white transition-colors group"
+          className="flex items-center gap-2 text-gray-900 mb-8 transition-colors group"
         >
           <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
           Back to Events
@@ -48,7 +48,7 @@ const Event = () => {
             </div>
 
             <div className="text-black space-y-6">
-              <h1 className="text-4xl font-bold bg-gradient-to-r from-gray-800 to-gray-200 bg-clip-text text-transparent">
+              <h1 className="text-4xl font-bold text-[#FF9933] bg-clip-text text-transparent">
                 {event.title}
               </h1>
 
