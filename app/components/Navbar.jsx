@@ -33,22 +33,22 @@ export function Navbar() {
           <span>
             <Link href="/">
               <img
-                src="/logo.png"
+                src="/"
                 className="w-[30px] h-[30px] rounded-full"
                 alt="logo"
               />
             </Link>
           </span>
           <Link href="/">
-            <span className="font-bold">EduTrack</span>
+            <span className="font-bold text-xl">Engineering India YCCE</span>
           </Link>
         </div>
-        <div className="hidden grow items-start lg:flex">
+        <div className="hidden grow items-start lg:flex justify-end">
           <ul className="ml-12 inline-flex space-x-8">
             {menuItems.map((item) => (
               <li key={item.name}>
                 <Link href={item.href}>
-                  <span className="inline-flex items-center text-sm font-semibold text-gray-800 hover:text-gray-900">
+                  <span className="inline-flex items-center text-base font-semibold text-zinc-800 hover:text-black">
                     {item.name}
                   </span>
                 </Link>
