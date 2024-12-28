@@ -38,16 +38,16 @@ export const EventSlider = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-amber-600 via-white to-green overflow-hidden">
+    <div className="relative min-h-screen overflow-hidden">
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1501426026826-31c667bdf23d')] bg-cover bg-center opacity-5" />
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 " />
+        <div className="absolute inset-0 " />
       </div>
 
       <div className="relative pt-16 pb-20">
-        <h1 className="text-center text-5xl font-bold text-white mb-16 tracking-tight">
+        <h1 className="text-center text-5xl font-bold text-white mb-16 tracking-tight text-[#FF9933]">
           Our Past Events
-          <div className="h-1 w-48 bg-gradient-to-r from-amber-600 via-white to-green mx-auto mt-4" />
+          <div className="h-1 w-48  mx-auto mt-4" />
         </h1>
 
         <div className="relative h-[500px] max-w-7xl mx-auto px-4">

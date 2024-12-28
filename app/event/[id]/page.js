@@ -1,26 +1,16 @@
-// pages/events/[id].jsx
 "use client";
 
 import React from "react";
-import { useRouter } from "next/router";
+import { useParams, useRouter } from "next/navigation";
 import { ArrowLeft, Calendar, Clock, MapPin } from "lucide-react";
 import { pastEvents } from "@/data/pastEvents";
 import { formatDate } from "@/utils/dateUtils";
 
 const Event = () => {
+  const { id } = useParams(); // Use useParams to get dynamic route params
   const router = useRouter();
-  const { id } = router.query;
 
-  // Find the event matching the ID
   const event = pastEvents.find((e) => e.id === Number(id));
-
-  if (!id) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-950 via-purple-900 to-pink-900">
-        <p className="text-2xl text-white">Loading...</p>
-      </div>
-    );
-  }
 
   if (!event) {
     return (
