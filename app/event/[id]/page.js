@@ -48,7 +48,7 @@ const Event = () => {
             </div>
 
             <div className="text-black space-y-6">
-              <h1 className="text-4xl font-bold text-[#FF9933] bg-clip-text text-transparent">
+              <h1 className="text-4xl font-bold text-[#FF9933]">
                 {event.title}
               </h1>
 

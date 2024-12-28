@@ -45,7 +45,7 @@ export const EventSlider = () => {
       </div>
 
       <div className="relative pt-16 pb-20">
-        <h1 className="text-center text-5xl font-bold text-white mb-16 tracking-tight text-[#FF9933]">
+        <h1 className="text-center text-5xl font-bold mb-16 tracking-tight text-[#FF9933]">
           Our Past Events
           <div className="h-1 w-48  mx-auto mt-4" />
         </h1>
