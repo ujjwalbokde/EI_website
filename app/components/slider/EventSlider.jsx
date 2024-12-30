@@ -9,6 +9,18 @@ import { SlideNavigation } from "./SlideNavigation";
 export const EventSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(1);
   const router = useRouter();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768); // Adjust breakpoint as needed
+    };
+
+    handleResize(); // Check on initial render
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -19,10 +31,14 @@ export const EventSlider = () => {
   }, []);
 
   const getVisibleEvents = () => {
-    const events = [...pastEvents];
-    const previous = (currentIndex - 1 + events.length) % events.length;
-    const next = (currentIndex + 1) % events.length;
-    return [events[previous], events[currentIndex], events[next]];
+    if (isMobile) {
+      return [pastEvents[currentIndex]];
+    } else {
+      const events = [...pastEvents];
+      const previous = (currentIndex - 1 + events.length) % events.length;
+      const next = (currentIndex + 1) % events.length;
+      return [events[previous], events[currentIndex], events[next]];
+    }
   };
 
   const goToEvent = (id) => {
@@ -45,23 +61,24 @@ export const EventSlider = () => {
       </div>
 
       <div className="relative pt-16 pb-20">
-        <h1 className="text-center text-5xl font-bold mb-16 tracking-tight text-[#FF9933]">
+        <h1 className="text-center text-3xl sm:text-5xl font-bold mb-8 sm:mb-16 tracking-tight text-[#FF9933]">
           Our Past Events
-          <div className="h-1 w-48  mx-auto mt-4" />
+          <div className="h-1 w-24 sm:w-48 mx-auto mt-4 bg-[#FF9933]" />
         </h1>
 
-        <div className="relative h-[500px] max-w-7xl mx-auto px-4">
-          <div className="flex items-center justify-center h-full gap-8">
+        <div className="relative h-[400px] sm:h-[500px] max-w-7xl mx-auto px-4">
+          <div className={`flex items-center justify-center h-full ${isMobile ? "" : "gap-8"}`}>
             {getVisibleEvents().map((event, index) => (
               <div
                 key={event.id}
                 onClick={() => goToEvent(event.id)}
-                className={`relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-500
-                  ${
-                    index === 1
-                      ? "w-[500px] h-[400px] z-10 scale-110 shadow-2xl"
-                      : "w-[300px] h-[300px] opacity-60 scale-90"
-                  }`}
+                className={`relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-500 ${
+                  isMobile
+                    ? "w-[300px] h-[400px] scale-110 shadow-2xl"
+                    : index === 1
+                    ? "w-[350px] h-[300px] z-10 scale-110 shadow-2xl"
+                    : "w-[250px] h-[200px] opacity-60 scale-90"
+                }`}
               >
                 <Image
                   src={event.image}
@@ -71,12 +88,8 @@ export const EventSlider = () => {
                   className="transition-transform duration-500 hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                  <h2
-                    className={`font-bold transition-all duration-500 ${
-                      index === 1 ? "text-2xl" : "text-lg"
-                    }`}
-                  >
+                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white">
+                  <h2 className={`font-bold ${isMobile ? "text-lg" : index === 1 ? "text-2xl" : "text-lg"}`}>
                     {event.title}
                   </h2>
                 </div>
