@@ -9,8 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@gsap/react": "^2.1.2",
+=======
+    "@nextui-org/button": "^2.2.9",
+    "@nextui-org/card": "^2.2.9",
+>>>>>>> 4dac09f062e2a6f83800b6595e479ec6708fb631
     "@nextui-org/react": "^2.6.10",
+    "@nextui-org/system": "^2.4.6",
+    "@nextui-org/theme": "^2.4.5",
+    "@shadcn/ui": "^0.0.4",
     "framer-motion": "^11.15.0",
     "gsap": "^3.12.7",
     "lucide-react": "^0.469.0",
