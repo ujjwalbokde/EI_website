@@ -6,3 +6,11 @@
 body{
     background-color: #F5F5DC;
 }
+@font-face {
+    font-family: gilroy101;
+    src: url("./assets/fonts/Gilroy-ExtraBold.woff2");
+  }
+  
+  body{
+    font-family: gilroy101;
+  }
