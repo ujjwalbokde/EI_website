@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect } from "react";
+import Navbar from "./Navbar";
 
 function Hero() {
   useEffect(() => {
@@ -36,9 +37,10 @@ function Hero() {
   }, []);
 
   return (
-    <div className="w-full h-screen flex items-center justify-center relative">
+    <div className="w-full h-screen -mt-8 flex items-center justify-center relative">
+      
       {/* Video background container */}
-      <div className="h-4/5 w-11/12 bg-red-50 relative rounded-2xl overflow-hidden opacity-60">
+      <div className="h-4/5 w-11/12 relative rounded-2xl overflow-hidden opacity-85">
         <video
           className="h-full w-full object-cover"
           autoPlay
@@ -55,7 +57,7 @@ function Hero() {
 
       {/* Text content container */}
       <div className="flex items-center justify-center flex-col absolute p-2">
-        <div className="font-bold flex lg:gap-8 gap-2">
+        <div className="font-bold flex lg:gap-8 gap-2 flex-col md:flex-row items-center">
           {/* "ENGINEERING" text */}
           <h1
             id="en"
@@ -85,6 +87,7 @@ function Hero() {
               <h1>IA</h1>
             </div>
           </div>
+
         </div>
 
         {/* "YCCE" text */}

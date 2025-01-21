@@ -97,14 +97,14 @@ function AboutOurTeam() {
 
       <div
         onMouseMove={(e) => mouseMoveEvent(e)}
-        className="w-full h-screen flex items-center justify-center"
+        className="md:w-full md:h-screen  flex items-center justify-center"
       >
         <div className="fixed top-0 left-0 bg-blue-500 opacity-3 rounded-md pointer-events-none z-50 px-3 py-1 opacity-0 overflow-hidden">
           <h1 className="font-bold text-white">Muchkund Thote</h1>
         </div>
 
         <div
-          className="w-[90em] h-[590px] flex overflow-hidden rounded-3xl relative"
+          className="md:w-[90em] h-[590px] flex overflow-hidden rounded-3xl relative"
           onMouseMove={(e) => change(e, imageRef)}
         >
           <img
