@@ -2,7 +2,9 @@ import React from 'react'
 
 const AboutEI = () => {
   return (
-    <div>AboutEI</div>
+    <div>
+      About EI
+    </div>
   )
 }
 

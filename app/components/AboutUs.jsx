@@ -5,7 +5,7 @@ import AboutOurTeam from './AboutOurTeam'
 const AboutUs = () => {
   return (
     <div>
-      {/* <AboutEI/> */}
+      <AboutEI/>
       <AboutOurTeam/>
     </div>
   )
