@@ -22,14 +22,19 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/logo.png" className="w-12 h-auto"  type="image" />
+        <link
+          rel="icon"
+          href="/logo.png"
+          className="w-12 h-auto"
+          type="image"
+        />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-br from-[#ffcc00] to-[#66ffff]`}
       >
-        <Navbar/>
+        <Navbar />
         {children}
-        <Footer/>
+        <Footer />
       </body>
     </html>
   );

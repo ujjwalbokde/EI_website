@@ -27,20 +27,20 @@ export function Navbar() {
   };
 
   return (
-    <div className="w-full text-gray-800 bg-orange-400  sticky top-0 z-50">
-      <div className="mx-auto flex max-w-7xl items-center justify-between">
+    <div className="w-full bg-opacity-0 sticky top-0 z-50 md:mt-3">
+      <div className="mx-auto flex md:h-20 md:p-4 max-w-7xl items-center justify-between border-b-[1px] border-black">
         <div className="inline-flex items-center space-x-2">
           <span>
             <Link href="/">
               <img
                 src="/logo.png"
-                className="w-12"
+                className="w-14 ml-4"
                 alt="logo"
               />
             </Link>
           </span>
           <Link href="/">
-            <span className="font-bold text-xl">Engineering India YCCE</span>
+            <span className="font-bold md:text-3xl text-xl">Engineering India YCCE</span>
           </Link>
         </div>
         <div className="hidden grow items-start lg:flex justify-end">
@@ -57,7 +57,7 @@ export function Navbar() {
           </ul>
         </div>
         
-        <div className="lg:hidden">
+        <div className="lg:hidden mx-4">
           <Menu onClick={toggleMenu} className="h-6 w-6 cursor-pointer" />
         </div>
         {isMenuOpen && (
@@ -88,11 +88,11 @@ export function Navbar() {
                     </button>
                   </div>
                 </div>
-                <div className="mt-6">
+                <div className="">
                   <nav className="grid gap-y-4">
                     {menuItems.map((item) => (
                       <Link key={item.name} href={item.href}>
-                        <span className="-m-3 flex items-center rounded-md p-3 text-sm font-semibold hover:bg-gray-50">
+                        <span className="-m-3 flex items-center rounded-md p-1 text-sm font-semibold hover:bg-gray-50 border-b-[1.5px] border-gray-200 m-[1px] text-center">
                           <span className="ml-3 text-base font-medium text-gray-900">
                             {item.name}
                           </span>

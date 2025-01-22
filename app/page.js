@@ -7,10 +7,10 @@ import { EventSlider } from "./components/slider/EventSlider";
 export default function Home() {
   return (
     <>
-      <Hero/>
-      <AboutUs/>
-      <EventSlider/>
-      <ContactUs/>
+      <Hero />
+      <AboutUs />
+      <EventSlider />
+      <ContactUs />
     </>
   );
 }
