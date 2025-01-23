@@ -9,7 +9,7 @@ function Hero() {
     // Dynamically import gsap and initialize animations
     import("gsap")
       .then((gsap) => {
-        tl = gsap.timeline();
+        tl = gsap.timeline;
 
         // Animate the "ENGINEERING" text
         tl.from("#en", {
@@ -38,7 +38,6 @@ function Hero() {
 
   return (
     <div className="w-full h-screen -mt-8 flex items-center justify-center relative">
-      
       {/* Video background container */}
       <div className="h-4/5 w-11/12 relative rounded-2xl overflow-hidden opacity-85">
         <video
@@ -87,7 +86,6 @@ function Hero() {
               <h1>IA</h1>
             </div>
           </div>
-
         </div>
 
         {/* "YCCE" text */}

@@ -1,114 +1,116 @@
-"use client"
+"use client";
 
-import React from "react";
-import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence, useScroll } from "framer-motion";
+import { useRouter } from "next/navigation";
 
-const menuItems = [
-  {
-    name: "Our Events",
-    href: "/",
-  },
-  {
-    name: "About",
-    href: "/about",
-  },
-  {
-    name: "Blogs",
-    href: "/blogs",
-  },
-];
+const cn = (...classes) => {
+  return classes.filter(Boolean).join(" ");
+};
 
-export function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+const Navbar = ({ navItems = [], className }) => {
+  const { scrollY } = useScroll();
+  const [hidden, setHidden] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const router = useRouter();
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  useEffect(() => {
+    let previousScrollY = 0;
+
+    const handleScroll = () => {
+      const currentScrollY = scrollY.get();
+      setHidden(currentScrollY > previousScrollY && currentScrollY > 50);
+      previousScrollY = currentScrollY;
+    };
+
+    const unsubscribe = scrollY.onChange(handleScroll);
+    return () => unsubscribe();
+  }, [scrollY]);
 
   return (
-    <div className="w-full bg-opacity-0 sticky top-0 z-50 md:mt-3">
-      <div className="mx-auto flex md:h-20 md:p-4 max-w-7xl items-center justify-between border-b-[1px] border-black">
-        <div className="inline-flex items-center space-x-2">
-          <span>
-            <Link href="/">
-              <img
-                src="/logo.png"
-                className="w-14 ml-4"
-                alt="logo"
-              />
-            </Link>
-          </span>
-          <Link href="/">
-            <span className="font-bold md:text-3xl text-xl">Engineering India YCCE</span>
-          </Link>
-        </div>
-        <div className="hidden grow items-start lg:flex justify-end">
-          <ul className="ml-12 inline-flex space-x-8">
-            {menuItems.map((item) => (
-              <li key={item.name}>
-                <Link href={item.href}>
-                  <span className="inline-flex items-center text-base font-semibold text-zinc-800 hover:text-black">
-                    {item.name}
-                  </span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-        
-        <div className="lg:hidden mx-4">
-          <Menu onClick={toggleMenu} className="h-6 w-6 cursor-pointer" />
-        </div>
-        {isMenuOpen && (
-          <div className="absolute inset-x-0 top-0 z-50 origin-top-right transform p-2 transition lg:hidden">
-            <div className="divide-y-2 divide-gray-50 rounded-lg bg-orange-400 shadow-lg ring-1 ring-black ring-opacity-5">
-              <div className="px-5 pb-6 pt-5">
-                <div className="flex items-center justify-between">
-                  <div className="inline-flex items-center space-x-2">
-                    <div className="inline-flex items-center">
-                      <img
-                        src="/logo.png"
-                        width={30}
-                        height={30}
-                        alt="logo"
-                        className="rounded-full"
-                      />
-                    </div>
-                    <span className="font-bold">Engineering India YCCE</span>
-                  </div>
-                  <div className="-mr-2">
-                    <button
-                      type="button"
-                      onClick={toggleMenu}
-                      className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                    >
-                      <span className="sr-only">Close menu</span>
-                      <X className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                </div>
-                <div className="">
-                  <nav className="grid gap-y-4">
-                    {menuItems.map((item) => (
-                      <Link key={item.name} href={item.href}>
-                        <span className="-m-3 flex items-center rounded-md p-1 text-sm font-semibold hover:bg-gray-50 border-b-[1.5px] border-gray-200 m-[1px] text-center">
-                          <span className="ml-3 text-base font-medium text-gray-900">
-                            {item.name}
-                          </span>
-                        </span>
-                      </Link>
-                    ))}
-                  </nav>
-                </div>
-                
-              </div>
-            </div>
-          </div>
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 1, y: 0 }}
+        animate={{ y: hidden ? -100 : 0, opacity: hidden ? 0 : 1 }}
+        transition={{ duration: 0.3 }}
+        className={cn(
+          "flex w-full bg-opacity-60 h-[5rem] backdrop-blur-md fixed top-0 inset-x-0 z-50 px-12 py-8 items-center font-space justify-between border-b-[1px] text-black",
+          className
         )}
-      </div>
-    </div>
+      >
+        <span
+          className="cursor-pointer tracking-tight font-bold flex gap-x-3 justify-center items-center px-4"
+          onClick={() => router.push("/")}
+        >
+          <img src="./logo.png" className="w-12" alt="" />
+          <h1 className="font-semibold text-[20px]">Engineering India</h1>
+        </span>
+
+        {/* Desktop Menu */}
+        <div className="hidden md:flex cursor-pointer space-x-8">
+          {navItems.map((item, index) => (
+            <div
+              className="hover:text-orange-600 transition-colors"
+              onClick={() => router.push(`${item.to}`)}
+              key={index}
+            >
+              <h1>{item.name}</h1>
+            </div>
+          ))}
+        </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden text-black"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        >
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            {mobileMenuOpen ? (
+              <path d="M6 18L18 6M6 6l12 12" />
+            ) : (
+              <path d="M4 6h16M4 12h16M4 18h16" />
+            )}
+          </svg>
+        </button>
+
+        {/* Mobile Menu Slider */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", bounce: 0, duration: 0.4 }}
+              className="fixed top-[5rem] right-0 h-screen w-64 bg-white shadow-lg z-50 md:hidden"
+            >
+              <div className="flex flex-col p-4 space-y-4">
+                {navItems.map((item, index) => (
+                  <div
+                    className="hover:text-orange-600 transition-colors px-4 py-2"
+                    onClick={() => {
+                      router.push(`${item.to}`);
+                      setMobileMenuOpen(false);
+                    }}
+                    key={index}
+                  >
+                    <h1>{item.name}</h1>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.div>
+    </AnimatePresence>
   );
-}
+};
 
 export default Navbar;
