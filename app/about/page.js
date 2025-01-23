@@ -48,13 +48,13 @@ export default function AboutUs() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-100 to-green-100 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-br py-12 px-4 sm:px-6 lg:px-8">
       <motion.div className="max-w-4xl mx-auto" variants={containerVariants} initial="hidden" animate="visible">
         <motion.h1 className="text-4xl font-bold text-blue-800 text-center mb-8" variants={itemVariants}>
         About {clubInfo.name}
         </motion.h1>
 
-        <motion.div className="bg-white shadow-lg rounded-lg overflow-hidden mb-12" variants={itemVariants}>
+        <motion.div className=" shadow-lg rounded-lg overflow-hidden mb-12" variants={itemVariants}>
           <div className="px-6 py-8">
             <p className="text-gray-700 mb-6 text-lg leading-relaxed">{clubInfo.description}</p>
             <h2 className="text-2xl font-semibold text-blue-700 mb-4">Our Mission</h2>
@@ -70,14 +70,14 @@ export default function AboutUs() {
           </div>
         </motion.div>
 
-        <motion.h2 className="text-3xl font-bold text-blue-800 mb-6" variants={itemVariants}>
+        <motion.h2 className="text-3xl font-bold text-blue-800 mb-6 text-center" variants={itemVariants}>
           Our Adventures
         </motion.h2>
         <motion.div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" variants={containerVariants}>
           {photos.map((photo, index) => (
             <motion.div
               key={index}
-              className="bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-500 hover:scale-105"
+              className=" shadow-lg rounded-lg overflow-hidden transform transition duration-500 hover:scale-105"
               variants={itemVariants}
               whileHover={{ y: -5 }}
             >
