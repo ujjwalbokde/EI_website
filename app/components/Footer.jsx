@@ -6,9 +6,6 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center text-sm text-gray-800">
         {/* Left section (Social Links with Icons) */}
         <div className="flex space-x-4">
-          <Link href="https://www.facebook.com/EngineeringIndiaYCCE" className="hover:text-blue-500 md:scale-150 md:px-2">
-            <FaFacebook/>
-          </Link>
           <Link href="https://www.instagram.com/EngineeringIndiaYCCE" className="hover:text-pink-500 md:scale-150 md:px-2">
             <FaInstagram />
           </Link>
