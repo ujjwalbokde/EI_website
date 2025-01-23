@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-br from-[#ffcc00] to-[#66ffff]`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-200`}
       >
         <Navbar />
         {children}
