@@ -104,7 +104,7 @@ function AboutOurTeam() {
         </div>
 
         <div
-          className="md:w-[90em] h-[590px] flex overflow-hidden rounded-3xl relative"
+          className="md:w-[90em] h-[590px] flex  rounded-3xl relative overflow-hidden"
           onMouseMove={(e) => change(e, imageRef)}
         >
           <img
@@ -133,7 +133,7 @@ function AboutOurTeam() {
             ))}
           </div>
 
-          <div className="w-full h-full bg-black opacity-40 absolute top-0 left-0 pointer-events-none text-white">
+          <div className="w-full h-full bg-black opacity-40 absolute top-0 left-0 pointer-events-none text-white ">
             <h4 className="font-bold text-[2vw] absolute bottom-[150px] p-[0.2] ml-3">
               Meet
             </h4>
