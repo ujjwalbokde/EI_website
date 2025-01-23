@@ -12,7 +12,7 @@ function Fqr() {
     <div className='h-[80vh] w-full '>
         <div className='w-full flex items-center justify-center flex-col  gap-10  '>
 
-              <h1 className='text-5xl '>FQA</h1>
+              <h1 className='text-5xl '>FAQ's</h1>
               <div className=' w-80  lg:w-[60%]'>
               <Accordion type="single" collapsible className="w-full ">
       <AccordionItem value="item-1" className="border-b-[1.5px]">
