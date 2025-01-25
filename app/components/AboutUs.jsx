@@ -1,14 +1,14 @@
-import React from 'react'
-import AboutEI from './AboutEI'
-import AboutOurTeam from './AboutOurTeam'
+import React from "react";
+import AboutEI from "./AboutEI";
+import AboutOurTeam from "./AboutOurTeam";
 
 const AboutUs = () => {
   return (
     <div>
-      <AboutEI/>
-      <AboutOurTeam/>
+      <AboutEI />
+      <AboutOurTeam />
     </div>
-  )
-}
+  );
+};
 
-export default AboutUs
+export default AboutUs;
