@@ -100,7 +100,7 @@ export default function AboutUs() {
           {photos.map((photo, index) => (
             <motion.div
               key={index}
-              className="bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-500 hover:scale-105"
+              className=" shadow-lg rounded-lg overflow-hidden transform transition duration-500 hover:scale-105"
               variants={itemVariants}
               whileHover={{ y: -5 }}
             >
