@@ -21,7 +21,7 @@ const Event = () => {
   }
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen mt-[5rem] ">
       <div className="absolute inset-0">
         <div className="absolute inset-0 " />
         <div className="absolute inset-0 " />
